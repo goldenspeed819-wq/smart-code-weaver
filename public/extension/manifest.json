@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Lovable Copilot — Editor GitHub + Multi-IA",
+  "version": "1.0.0",
+  "description": "Painel flutuante que lê imagens da interface, edita o código do seu repositório GitHub com IA, mostra o diff, comita e envia o resumo para o chat do Lovable.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://lovable.dev/*",
+    "https://api.github.com/*",
+    "https://api.openai.com/*",
+    "https://api.anthropic.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.groq.com/*",
+    "https://*.lovable.app/*"
+  ],
+  "action": { "default_popup": "popup.html", "default_title": "Lovable Copilot" },
+  "content_scripts": [
+    {
+      "matches": ["https://lovable.dev/*"],
+      "js": ["content.js"],
+      "css": ["panel.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": { "128": "icon.png" }
+}
